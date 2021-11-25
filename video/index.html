@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>video list for most of the famous p stars</title>
+	<style type="text/css">
+		#container {
+			display: flex;
+		}		
+
+
+	</style>
+</head>
+<body>
+	<div class="banner">
+		
+	</div>
+	<div id="container" class="panel">
+
+
+	</div>
+	<div class="footer">
+		
+	</div>
+</body>
+<script type="text/javascript">
+	var arraylen = 5;
+	var container = document.getElementById('container');
+	for (var i = 4; i >= 0; i--) {
+		var item  = document.createElement("div");
+		var video = document.createElement("video");
+		video.controls = 'controls';
+		item.style.width = '200px';
+		video.style.width = '100%';
+		video.src = '../src/video/v'+ (i+1) + '.mp4';
+		item.append(video);
+		container.append(item);
+	}
+</script>
+</html>
