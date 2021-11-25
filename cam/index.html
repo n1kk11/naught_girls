@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cam</title>
+	<style type="text/css">
+		video {
+			width: 50%;
+			height: 50%;
+			margin: 50px auto;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div>I'm telling you! just click here !</div>
+	<br>
+	<div>
+		<video id="video"></video>
+	</div>
+</body>
+<script type="text/javascript">
+	var video = document.getElementById('video');
+
+	if (navigator.mediaDevices.getUserMedia) {
+		navigator.mediaDevices.getUserMedia({ video: { width: 1000, height: 1000 } }, success, error );
+	} else if (navigator.webkitGetUserMedia) {
+		navigator.webkitGetUserMedia({ video: { width: 1000, height: 1000 } }, success, error );
+	} else if (navigator.mozGetUserMedia) {
+		navigator.mozGetUserMedia({ video: { width: 1000, height: 1000 } }, success, error );
+	} else if (navigator.getUserMedia) {
+		navigator.getUserMedia({ video: { width: 1000, height: 1000 } }, success, error );
+	}
+
+	function success (stream) {
+		//将视频流设置为video元素的源
+		console.log(stream);
+		//video.src = CompatibleURL.createObjetURL(stream);
+		video.srcObjeck = stream;
+		video.play();
+	}
+	function error(error) {
+		console.log('访问用户媒体设备失败${error.name}, ${error.message}');
+	}
+</script>
+</html>
